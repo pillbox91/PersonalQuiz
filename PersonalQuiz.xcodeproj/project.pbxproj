@@ -13,6 +13,8 @@
 		327598902760BA4400485277 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3275988E2760BA4400485277 /* Main.storyboard */; };
 		327598922760BA4A00485277 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 327598912760BA4A00485277 /* Assets.xcassets */; };
 		327598952760BA4A00485277 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327598932760BA4A00485277 /* LaunchScreen.storyboard */; };
+		327683052762164700943A64 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327683042762164700943A64 /* Question.swift */; };
+		327683072762176A00943A64 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327683062762176A00943A64 /* Answer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		327598912760BA4A00485277 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		327598942760BA4A00485277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		327598962760BA4A00485277 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		327683042762164700943A64 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		327683062762176A00943A64 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 		327598A02760BC1A00485277 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				327683042762164700943A64 /* Question.swift */,
+				327683062762176A00943A64 /* Answer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,6 +184,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3275988D2760BA4400485277 /* ViewController.swift in Sources */,
+				327683052762164700943A64 /* Question.swift in Sources */,
+				327683072762176A00943A64 /* Answer.swift in Sources */,
 				327598892760BA4400485277 /* AppDelegate.swift in Sources */,
 				3275988B2760BA4400485277 /* SceneDelegate.swift in Sources */,
 			);
