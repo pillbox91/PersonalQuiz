@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Introduction View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IntroductionViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,7 +85,7 @@
         <!--Вопрос №-->
         <scene sceneID="TJq-ZG-x2L">
             <objects>
-                <viewController id="zKk-XP-Jsi" sceneMemberID="viewController">
+                <viewController id="zKk-XP-Jsi" customClass="QuestionsViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eg0-MO-VbK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -243,6 +243,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="multipleStackView" destination="8n7-ca-byM" id="xAq-Rt-dWG"/>
+                        <outlet property="questionLabel" destination="uhS-G3-ZPX" id="jM5-CY-Gnc"/>
+                        <outlet property="rangedStackView" destination="T3g-4p-ix7" id="9IS-XA-sfW"/>
+                        <outlet property="singleStackView" destination="IXr-y9-Yvi" id="yvM-IN-WM9"/>
                         <segue destination="nC0-Ye-mhA" kind="show" identifier="resultSegue" id="9mt-tN-8Kt"/>
                     </connections>
                 </viewController>
@@ -253,7 +257,7 @@
         <!--Результаты-->
         <scene sceneID="bPF-Xc-TXL">
             <objects>
-                <viewController id="nC0-Ye-mhA" sceneMemberID="viewController">
+                <viewController id="nC0-Ye-mhA" customClass="ResultsViewController" customModule="PersonalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5wo-he-KwQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -285,10 +289,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Результаты" id="Piq-tc-grp">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="CCD-tE-FMx"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="CCD-tE-FMx">
+                            <connections>
+                                <segue destination="hfN-RW-g0T" kind="unwind" unwindAction="unwindWithSegue:" id="KT3-H6-vCB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ol4-k5-oN7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hfN-RW-g0T" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3107" y="93"/>
         </scene>
