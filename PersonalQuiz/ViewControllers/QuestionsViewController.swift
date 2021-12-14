@@ -9,14 +9,29 @@ import UIKit
 
 class QuestionsViewController: UIViewController {
 
+    // MARK: - IB Outlets
     @IBOutlet var questionLabel: UILabel!
     
     @IBOutlet var singleStackView: UIStackView!
     @IBOutlet var multipleStackView: UIStackView!
     @IBOutlet var rangedStackView: UIStackView!
     
+    @IBOutlet var singleButtons: [UIButton]!
+    @IBOutlet var multipleLabels: [UILabel]!
+    @IBOutlet var multipleSwitches: [UISwitch]!
+    @IBOutlet var rangedLabels: [UILabel]!
+    
+    @IBOutlet var rangedSlider: UISlider!
+    @IBOutlet var questionProgressView: UIProgressView!
+    
+    // MARK: - Private Properties
+    private let questions = Question.getQustions()
+    private var questionIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateUI()
     }
     
 
@@ -30,4 +45,29 @@ class QuestionsViewController: UIViewController {
     }
     */
 
+}
+
+// MARK: - Private Methods
+extension QuestionsViewController {
+    private func updateUI() {
+        for stackView in [singleStackView, multipleStackView, rangedStackView] {
+            stackView?.isHidden = true
+        }
+        
+        let currentQuestion = questions[questionIndex]
+        questionLabel.text = currentQuestion.text
+        
+        let totalProgress = Float(questionIndex) / Float(questions.count)
+        questionProgressView.setProgress(totalProgress, animated: true)
+        
+        title = "Вопрос № \(questionIndex + 1) из \(questions.count)"
+    }
+    
+    private func showCurrentAnswers(for type: ResponseType) {
+        switch type {
+        case .single: break
+        case .multiple: break
+        case .ranged: break
+        }
+    }
 }
