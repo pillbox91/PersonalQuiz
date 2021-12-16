@@ -21,7 +21,12 @@ class QuestionsViewController: UIViewController {
     @IBOutlet var multipleSwitches: [UISwitch]!
     @IBOutlet var rangedLabels: [UILabel]!
     
-    @IBOutlet var rangedSlider: UISlider!
+    @IBOutlet var rangedSlider: UISlider! {
+        didSet {
+            let answersCount = Float(questions[questionIndex].answers.count - 1)
+            rangedSlider.maximumValue = answersCount
+        }
+    }
     @IBOutlet var questionProgressView: UIProgressView!
     
     // MARK: - Private Properties
@@ -34,7 +39,6 @@ class QuestionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         updateUI()
     }
     
@@ -59,17 +63,17 @@ class QuestionsViewController: UIViewController {
     
     
     @IBAction func rangedAnswerButtonPressed() {
-        
+        let index = lrintf(rangedSlider.value)
+        answersChoosen.append(currentAnswers[index])
+        nextQuestion()
     }
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let resultVC = segue.destination as! ResultsViewController
+        resultVC.answers = answersChoosen
     }
-    */
 
 }
 
@@ -116,6 +120,8 @@ extension QuestionsViewController {
     }
     
     private func showRangedAnswers(with answers: [Answer]) {
+        rangedStackView.isHidden = false
+        
         rangedLabels.first?.text = answers.first?.text
         rangedLabels.last?.text = answers.last?.text
     }

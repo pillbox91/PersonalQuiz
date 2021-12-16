@@ -216,7 +216,7 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0S0-Fx-uNB">
                                         <rect key="frame" x="0.0" y="126.5" width="280" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Ответить"/>
                                         <connections>
                                             <action selector="rangedAnswerButtonPressed" destination="zKk-XP-Jsi" eventType="touchUpInside" id="QGl-by-75e"/>
                                         </connections>
@@ -253,13 +253,7 @@
                             <constraint firstItem="IyE-xE-6Te" firstAttribute="trailing" secondItem="8n7-ca-byM" secondAttribute="trailing" constant="20" id="y6i-fM-TzW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Вопрос №" id="mtY-Rs-NrI">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="4WA-zJ-ckM">
-                            <connections>
-                                <segue destination="nC0-Ye-mhA" kind="show" id="oj4-UZ-LKV"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Вопрос №" id="mtY-Rs-NrI"/>
                     <connections>
                         <outlet property="multipleStackView" destination="8n7-ca-byM" id="xAq-Rt-dWG"/>
                         <outlet property="questionLabel" destination="uhS-G3-ZPX" id="jM5-CY-Gnc"/>
@@ -329,6 +323,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="anymalTypeLabel" destination="l3D-2r-1zl" id="xcf-cA-rrO"/>
+                        <outlet property="descriptionLabel" destination="lf4-Hf-Yak" id="syZ-2Z-Yxg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ol4-k5-oN7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="hfN-RW-g0T" userLabel="Exit" sceneMemberID="exit"/>
@@ -354,9 +352,6 @@
             <point key="canvasLocation" x="1636.875" y="92.957746478873247"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="9mt-tN-8Kt"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
