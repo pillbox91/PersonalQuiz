@@ -9,7 +9,7 @@ import UIKit
 
 class ResultsViewController: UIViewController {
 
-    @IBOutlet var anymalTypeLabel: UILabel!
+    @IBOutlet var animalTypeLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     
     var answers: [Answer]!
@@ -27,7 +27,25 @@ extension ResultsViewController {
     
     private func updateResult() {
         
+        var frequencyOfAnimals: [AnimalType: Int] = [:]
+        let animals = answers.map { $0.type }
         
+        for animal in animals {
+            if let animalTypeCount = frequencyOfAnimals[animal] {
+                frequencyOfAnimals.updateValue(animalTypeCount + 1, forKey: animal)
+            } else {
+                frequencyOfAnimals[animal] = 1
+            }
+        }
+        
+        let sortedFrequencyOfAnimals = frequencyOfAnimals.sorted { $0.value > $1.value }
+        guard let mostFrequncyAnimal = sortedFrequencyOfAnimals.first?.key else { return }
+        
+       updateUI(with: mostFrequncyAnimal)
     }
     
+    private func updateUI(with animal: AnimalType) {
+        animalTypeLabel.text = "Вы - \(animal.rawValue)!"
+        descriptionLabel.text = animal.definition
+    }
 }
